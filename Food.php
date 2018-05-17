@@ -1,7 +1,7 @@
 <?php
 
 class Food {
-  private $lucky;
+  private $recommended;
   private $coupe_or_koppe;
 
   private $tomakoppes = [
@@ -27,15 +27,15 @@ class Food {
   ];
 
   public function __construct($now) {
-    $foods = $now === "morning" ? $this->tomakoppes : $this->coupes;
+    $foods = $now === "morning" ? $this->coupes : $this->tomakoppes;
     $key = array_rand($foods);
-    $this->lucky = $foods[$key];
+    $this->recommended = $foods[$key];
 
     $this->coupe_or_koppe = $now === "morning" ? "クープ" : "とまコッペ";
   }
 
-  public function getLucky() {
-    return $this->lucky;
+  public function getRecommended() {
+    return $this->recommended;
   }
 
   public function getCoupeOrKoppe() {
